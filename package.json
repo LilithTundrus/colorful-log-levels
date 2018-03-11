@@ -9,6 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "keywords": [
+    "logger",
+    "typescript",
+    "js",
+    "logging"
+  ],
+  "author": "Lilith Tundrus",
   "license": "MIT"
 }
