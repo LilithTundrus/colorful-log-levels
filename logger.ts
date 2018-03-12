@@ -17,12 +17,28 @@ export default class Logger {
 
     // Accepts arrays or a single string. Supports template literals
     debug(...message: string[]) {
-        if(this.logLevel >= 0) {
+        if (this.logLevel >= 0) {
             message.map((element) => {
                 console.log(chalk.yellowBright(`DEBUG: ${element}`));
                 if (this.writeToFile) {
                     let logMsg = `\n${new Date().toISOString()}: ${element}`;
                     return fs.appendFile(`${this.outputDir}/debug.log`, `DEBUG: ${message}\n`, (err) => {
+                        if (err) {
+                            throw (err);
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    info(...message: string[]) {
+        if (this.logLevel >= 1) {
+            message.map((element) => {
+                console.log(chalk.greenBright(`INFO: ${element}`));
+                if (this.writeToFile) {
+                    let logMsg = `\n${new Date().toISOString()}: ${element}`;
+                    return fs.appendFile(`${this.outputDir}/info.log`, `INFO: ${message}\n`, (err) => {
                         if (err) {
                             throw (err);
                         }
