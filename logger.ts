@@ -20,15 +20,15 @@ export default class Logger {
         if (this.logLevel >= 0) {
             message.map((element) => {
                 console.log(chalk.yellowBright(`DEBUG: ${element}`));
-                if (this.writeToFile) {
-                    let logMsg = `\n${new Date().toISOString()}: ${element}`;
-                    return fs.appendFile(`${this.outputDir}/debug.log`, `DEBUG: ${message}\n`, (err) => {
-                        if (err) {
-                            throw (err);
-                        }
-                    });
-                }
             });
+            if (this.writeToFile) {
+                let logMsg = `\n${new Date().toISOString()}: \nDEBUG: ${message.join(`\nDEBUG: `)}`;
+                return fs.appendFile(`${this.outputDir}/debug.log`, logMsg, (err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                });
+            }
         }
     }
 

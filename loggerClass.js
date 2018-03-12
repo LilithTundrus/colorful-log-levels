@@ -3,15 +3,7 @@ const chalk = require('chalk').default;
 const config = require('../config/config.js');
 const fs = require('fs');
 
-// TODO: Have this use streams to reduce overhead and increase performance
-// TODO: of course rewrite this in TS
 class Logger {
-    /**
-     * Create a new Logger instance
-     * 
-     *  TODO: actually implement the loggingLevel
-     * @class Logger
-     */
     constructor() {
     }
 
