@@ -2,12 +2,10 @@
   "name": "logger-ts-basic",
   "version": "0.1.0",
   "description": "A basic logger for JS apps to write files for each log level",
-  "main": "build/logger.ts",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "build/logger.js",
+  "types": "build/logger.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "keywords": [
     "logger",
@@ -16,5 +14,15 @@
     "logging"
   ],
   "author": "Lilith Tundrus",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/LilithTundrus/logger-ts"
+  },
+  "bugs": {
+    "url": "https://github.com/LilithTundrus/logger-ts/issues"
+  },
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "chalk": "^2.3.2"
+  }
 }
