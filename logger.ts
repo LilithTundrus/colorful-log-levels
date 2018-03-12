@@ -19,7 +19,7 @@ export default class Logger {
     debug(...message: string[]) {
         if (this.logLevel >= 0) {
             message.map((element) => {
-                console.log(chalk.yellowBright(`DEBUG: ${element}`));
+                console.log(`${chalk.yellowBright('DEBUG:')} ${element}`);
             });
             if (this.writeToFile) {
                 let logMsg = `\n${new Date().toISOString()}: \n\tDEBUG: ${message.join(`\n\tDEBUG: `)}`;
@@ -35,7 +35,7 @@ export default class Logger {
     info(...message: string[]) {
         if (this.logLevel >= 1) {
             message.map((element) => {
-                console.log(chalk.greenBright(`DEBUG: ${element}`));
+                console.log(`${chalk.greenBright('INFO:')} ${element}`);
             });
             if (this.writeToFile) {
                 let logMsg = `\n${new Date().toISOString()}: \n\tINFO: ${message.join(`\n\tINFO: `)}`;
@@ -47,4 +47,21 @@ export default class Logger {
             }
         }
     }
+
+    db(...message: string[]) {
+        if (this.logLevel >= 1) {
+            message.map((element) => {
+                console.log(`${chalk.blueBright('DB:')} ${element}`);
+            });
+            if (this.writeToFile) {
+                let logMsg = `\n${new Date().toISOString()}: \n\tDB: ${message.join(`\n\tDB: `)}`;
+                return fs.appendFile(`${this.outputDir}/db.log`, logMsg, (err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                });
+            }
+        }
+    }
+
 }
