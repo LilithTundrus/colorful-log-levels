@@ -20,3 +20,6 @@ logger.auth('a person did ANOTHER thing', 'And this too!')
 logger.warn('Bad thing ooh!')
 
 logger.warn('More bad', 'Oh no!')
+
+logger.error('Very bad!!')
+logger.error(Error('Oh no!!!!'), new Error('ALSO VERY BAD'))

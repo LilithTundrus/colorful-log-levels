@@ -81,13 +81,29 @@ export default class Logger {
     }
 
     warn(...message: string[]) {
-        if (this.logLevel >= 3) {
+        if (this.logLevel >= 4) {
             message.map((element) => {
                 console.log(`${chalk.yellowBright('WARN:')} ${element}`);
             });
             if (this.writeToFile) {
                 let logMsg = `\n${new Date().toISOString()}: \n\tWARN: ${message.join(`\n\tWARN: `)}`;
                 return fs.appendFile(`${this.outputDir}/warn.log`, logMsg, (err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                });
+            }
+        }
+    }
+
+    error(...message: Array<any | Error>) {
+        if (this.logLevel >= 5) {
+            message.map((element) => {
+                console.log(`${chalk.red('ERROR:')} ${element && element.stack ? element.message + "\n" + element.stack : element.toString()}`);
+            });
+            if (this.writeToFile) {
+                let logMsg = `\n${new Date().toISOString()}: \n\tERROR: ${message.join(`\n\tERROR: `)}`;
+                return fs.appendFile(`${this.outputDir}/error.log`, logMsg, (err) => {
                     if (err) {
                         throw (err);
                     }
