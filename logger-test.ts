@@ -14,5 +14,9 @@ logger.db('DB ACCESS!')
 
 logger.db(`Accessed at ${new Date().toTimeString()}`, 'AAAAA')
 
-logger.auth('A person dide a thing!');
+logger.auth('A person did a thing!');
 logger.auth('a person did ANOTHER thing', 'And this too!')
+
+logger.warn('Bad thing ooh!')
+
+logger.warn('More bad', 'Oh no!')

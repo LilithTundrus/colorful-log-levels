@@ -19,7 +19,7 @@ export default class Logger {
     debug(...message: string[]) {
         if (this.logLevel >= 0) {
             message.map((element) => {
-                console.log(`${chalk.yellowBright('DEBUG:')} ${element}`);
+                console.log(`${chalk.yellow('DEBUG:')} ${element}`);
             });
             if (this.writeToFile) {
                 let logMsg = `\n${new Date().toISOString()}: \n\tDEBUG: ${message.join(`\n\tDEBUG: `)}`;
@@ -80,4 +80,19 @@ export default class Logger {
         }
     }
 
+    warn(...message: string[]) {
+        if (this.logLevel >= 3) {
+            message.map((element) => {
+                console.log(`${chalk.yellowBright('WARN:')} ${element}`);
+            });
+            if (this.writeToFile) {
+                let logMsg = `\n${new Date().toISOString()}: \n\tWARN: ${message.join(`\n\tWARN: `)}`;
+                return fs.appendFile(`${this.outputDir}/warn.log`, logMsg, (err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                });
+            }
+        }
+    }
 }
