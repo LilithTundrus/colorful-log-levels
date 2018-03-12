@@ -13,19 +13,17 @@ export default class Logger {
     }
 
     // Accepts arrays or a single string. Supports template literals
-    debug(message: string[] | string) {
-        if (typeof (message) == 'string') {
-            console.log(chalk.yellowBright(`DEBUG: ${message}`));
-        } else if (typeof (message) == 'object') {
-            message.map(function (element) {
-                console.log(chalk.yellowBright(`DEBUG: ${element}`))
-            })
-        }
-        return fs.appendFile(`${this.outputDir}/debug.log`, `DEBUG: ${message}\n`, (err) => {
-            if (err) {
-                throw (err);
+    debug(...message: string[]) {
+        message.map((element) => {
+            console.log(chalk.yellowBright(`DEBUG: ${element}`));
+            if (this.writeToFile) {
+                let logMsg = `\n${new Date().toISOString()}: ${element}`;
+                return fs.appendFile(`${this.outputDir}/debug.log`, `DEBUG: ${message}\n`, (err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                })
             }
         })
-
     }
 }
