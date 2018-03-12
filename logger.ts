@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import * as fs from 'fs';
 import { logLevels } from './enuns';
 
-// Create a subscriber level
+// TODO: Create a color selector for the user
 
 export default class Logger {
     private outputDir: string;
@@ -49,13 +49,29 @@ export default class Logger {
     }
 
     db(...message: string[]) {
-        if (this.logLevel >= 1) {
+        if (this.logLevel >= 2) {
             message.map((element) => {
                 console.log(`${chalk.blueBright('DB:')} ${element}`);
             });
             if (this.writeToFile) {
                 let logMsg = `\n${new Date().toISOString()}: \n\tDB: ${message.join(`\n\tDB: `)}`;
                 return fs.appendFile(`${this.outputDir}/db.log`, logMsg, (err) => {
+                    if (err) {
+                        throw (err);
+                    }
+                });
+            }
+        }
+    }
+
+    auth(...message: string[]) {
+        if (this.logLevel >= 3) {
+            message.map((element) => {
+                console.log(`${chalk.magentaBright('AUTH:')} ${element}`);
+            });
+            if (this.writeToFile) {
+                let logMsg = `\n${new Date().toISOString()}: \n\tAUTH: ${message.join(`\n\tAUTH: `)}`;
+                return fs.appendFile(`${this.outputDir}/auth.log`, logMsg, (err) => {
                     if (err) {
                         throw (err);
                     }
