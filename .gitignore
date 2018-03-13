@@ -64,4 +64,3 @@ typings/
 build/**
 logs/**
 **.js
-**.d.ts
