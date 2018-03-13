@@ -1,8 +1,11 @@
 "use strict";
-exports.__esModule = true;
-var logger_1 = require("./logger");
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+var logger_1 = __importDefault(require("./logger"));
 var enuns_1 = require("./enuns");
-var logger = new logger_1["default"]('./logs', enuns_1.logLevels.error, true);
+var logger = new logger_1.default('./logs', enuns_1.logLevels.error, true);
 // Template literals are supported
 logger.debug("Test");
 // So are indefinite arguments (rest params)

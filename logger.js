@@ -1,7 +1,17 @@
 'use strict';
-exports.__esModule = true;
-var chalk_1 = require("chalk");
-var fs = require("fs");
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+}
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+var chalk_1 = __importDefault(require("chalk"));
+var fs = __importStar(require("fs"));
 // TODO: Create a color selector for the user
 // TODO: Add a console.time wrapper!
 var Logger = /** @class */ (function () {
@@ -18,7 +28,7 @@ var Logger = /** @class */ (function () {
         }
         if (this.logLevel >= 0) {
             message.map(function (element) {
-                console.log(chalk_1["default"].yellow('DEBUG:') + " " + element);
+                console.log(chalk_1.default.yellow('DEBUG:') + " " + element);
             });
             if (this.writeToFile) {
                 var logMsg = "\n" + new Date().toISOString() + ": \n\tDEBUG: " + message.join("\n\tDEBUG: ");
@@ -37,7 +47,7 @@ var Logger = /** @class */ (function () {
         }
         if (this.logLevel >= 1) {
             message.map(function (element) {
-                console.log(chalk_1["default"].greenBright('INFO:') + " " + element);
+                console.log(chalk_1.default.greenBright('INFO:') + " " + element);
             });
             if (this.writeToFile) {
                 var logMsg = "\n" + new Date().toISOString() + ": \n\tINFO: " + message.join("\n\tINFO: ");
@@ -56,7 +66,7 @@ var Logger = /** @class */ (function () {
         }
         if (this.logLevel >= 2) {
             message.map(function (element) {
-                console.log(chalk_1["default"].blueBright('DB:') + " " + element);
+                console.log(chalk_1.default.blueBright('DB:') + " " + element);
             });
             if (this.writeToFile) {
                 var logMsg = "\n" + new Date().toISOString() + ": \n\tDB: " + message.join("\n\tDB: ");
@@ -75,7 +85,7 @@ var Logger = /** @class */ (function () {
         }
         if (this.logLevel >= 3) {
             message.map(function (element) {
-                console.log(chalk_1["default"].magentaBright('AUTH:') + " " + element);
+                console.log(chalk_1.default.magentaBright('AUTH:') + " " + element);
             });
             if (this.writeToFile) {
                 var logMsg = "\n" + new Date().toISOString() + ": \n\tAUTH: " + message.join("\n\tAUTH: ");
@@ -94,7 +104,7 @@ var Logger = /** @class */ (function () {
         }
         if (this.logLevel >= 4) {
             message.map(function (element) {
-                console.log(chalk_1["default"].yellowBright('WARN:') + " " + element);
+                console.log(chalk_1.default.yellowBright('WARN:') + " " + element);
             });
             if (this.writeToFile) {
                 var logMsg = "\n" + new Date().toISOString() + ": \n\tWARN: " + message.join("\n\tWARN: ");
@@ -113,7 +123,7 @@ var Logger = /** @class */ (function () {
         }
         if (this.logLevel >= 5) {
             message.map(function (element) {
-                console.log(chalk_1["default"].red('ERROR:') + " " + (element && element.stack ? element.message + "\n" + element.stack : element.toString()));
+                console.log(chalk_1.default.red('ERROR:') + " " + (element && element.stack ? element.message + "\n" + element.stack : element.toString()));
             });
             if (this.writeToFile) {
                 var logMsg = "\n" + new Date().toISOString() + ": \n\tERROR: " + message.join("\n\tERROR: ");
@@ -127,4 +137,4 @@ var Logger = /** @class */ (function () {
     };
     return Logger;
 }());
-exports["default"] = Logger;
+exports.default = Logger;
