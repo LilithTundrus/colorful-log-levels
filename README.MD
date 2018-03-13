@@ -1,6 +1,6 @@
 # colorful-log-levels
 
-[![Build Status](https://travis-ci.org/LilithTundrus/logger-ts.svg?branch=master)](https://travis-ci.org/LilithTundrus/logger-ts)
+[![Build Status](https://travis-ci.org/LilithTundrus/colorful-log-levels.svg?branch=master)](https://travis-ci.org/LilithTundrus/colorful-log-levels)
 
 ## About
 
