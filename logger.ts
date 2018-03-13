@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import { logLevels } from './enuns';
 
 // TODO: Create a color selector for the user
+// TODO: Add a console.time wrapper!
 
 export default class Logger {
     private outputDir: string;
@@ -12,7 +13,7 @@ export default class Logger {
     constructor(outputDir: string, logLevel: logLevels, writeToFile?: boolean) {
         this.outputDir = outputDir;
         this.writeToFile = writeToFile;
-        this.logLevel = logLevel
+        this.logLevel = logLevel;
     }
 
     // Accepts arrays or a single string. Supports template literals
