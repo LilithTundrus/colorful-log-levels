@@ -1,7 +1,7 @@
 'use strict';
 import chalk from 'chalk';
 import * as fs from 'fs';
-import { logLevels } from './enuns';
+import { logLevels } from './enums';
 
 // TODO: Create a color selector for the user
 // TODO: Add a console.time wrapper!
