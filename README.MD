@@ -39,5 +39,31 @@ logger.error('Very bad!!');
 logger.error(Error('Oh no!!!!'), new Error('ALSO VERY BAD'));
 ```
 
+**For JS requires slightly different:**
+
+```javascript
+const Logger = require('logger-ts').default;
+const logLevels = require('logger-ts/build/enums');
+
+let logger = new Logger('./', logLevels.error, true);
+
+// First argument is the directory you want the logger to write files to
+// Second is the level you want to subscribe to 
+// Last argument is if you want logs to be written to file
+let logger = new Logger('./logs', logLevels.error, true);
+
+let test = `${6+1}`
+// Template literals are supported
+logger.debug(`Test`);
+// So are indefinite arguments (rest params)
+logger.debug(test, 'Debug message');
+```
+
+## Issues
+
+Do you have any issues or recommendations for this package? Feel free to open an issue in the [issue](https://github.com/LilithTundrus/logger-ts/issues) section. I'm always happy to help :D
 
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
