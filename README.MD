@@ -26,7 +26,7 @@ You should have `Node 6.11` and `tsc 2.1` or higher to be safely running this.
 
 ```typescript
 import Logger from 'colorful-log-levels';
-import { logLevels } from 'colorful-log-levels/build/enums';
+import { logLevels } from 'colorful-log-levels/enums';
 
 // First argument is the directory you want the logger to write files to
 // Second is the level you want to subscribe to 
@@ -48,9 +48,7 @@ logger.error(Error('Oh no!!!!'), new Error('ALSO VERY BAD'));
 
 ```javascript
 const Logger = require('colorful-log-levels').default;
-const logLevels = require('colorful-log-levels/build/enums');
-
-let logger = new Logger('./', logLevels.error, true);
+let logLevels = require('colorful-log-levels/enums').logLevels;
 
 // First argument is the directory you want the logger to write files to
 // Second is the level you want to subscribe to 
