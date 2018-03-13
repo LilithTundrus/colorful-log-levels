@@ -1,6 +1,6 @@
 {
   "name": "colorful-log-levels",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A basic logger for JS apps to write files for each log level",
   "main": "build/logger.js",
   "types": "build/logger.d.ts",
