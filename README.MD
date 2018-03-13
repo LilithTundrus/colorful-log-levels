@@ -12,7 +12,7 @@ This is a really basic logging tool, still in development.
 This project is available via NPM:
 
 ```
-npm install logger-ts--save
+PLACEHOLDER
 ```
 
 You should have `Node 6.11` and `tsc 2.1` or higher to be safely running this.
