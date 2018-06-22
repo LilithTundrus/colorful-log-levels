@@ -4,10 +4,10 @@ export default class Logger {
     private writeToFile;
     private logLevel;
     constructor(outputDir: string, logLevel: logLevels, writeToFile?: boolean);
-    debug(...message: string[]): void;
-    info(...message: string[]): void;
-    db(...message: string[]): void;
-    auth(...message: string[]): void;
-    warn(...message: string[]): void;
+    debug(...message: Array<any | string>): void;
+    info(...message: Array<any | string>): void;
+    db(...message: Array<any | string>): void;
+    auth(...message: Array<any | string>): void;
+    warn(...message: Array<any | string>): void;
     error(...message: Array<any | Error>): void;
 }

@@ -17,7 +17,7 @@ export default class Logger {
     }
 
     // Accepts arrays or a single string. Supports template literals
-    debug(...message: string[]) {
+    debug(...message: Array<any | string>) {
         if (this.logLevel >= 0) {
             message.map((element) => {
                 console.log(`${chalk.yellow('DEBUG:')} ${element}`);
@@ -33,7 +33,7 @@ export default class Logger {
         }
     }
 
-    info(...message: string[]) {
+    info(...message: Array<any | string>) {
         if (this.logLevel >= 1) {
             message.map((element) => {
                 console.log(`${chalk.greenBright('INFO:')} ${element}`);
@@ -49,7 +49,7 @@ export default class Logger {
         }
     }
 
-    db(...message: string[]) {
+    db(...message: Array<any | string>) {
         if (this.logLevel >= 2) {
             message.map((element) => {
                 console.log(`${chalk.blueBright('DB:')} ${element}`);
@@ -65,7 +65,7 @@ export default class Logger {
         }
     }
 
-    auth(...message: string[]) {
+    auth(...message: Array<any | string>) {
         if (this.logLevel >= 3) {
             message.map((element) => {
                 console.log(`${chalk.magentaBright('AUTH:')} ${element}`);
@@ -81,7 +81,7 @@ export default class Logger {
         }
     }
 
-    warn(...message: string[]) {
+    warn(...message: Array<any | string>) {
         if (this.logLevel >= 4) {
             message.map((element) => {
                 console.log(`${chalk.yellowBright('WARN:')} ${element}`);

@@ -1,6 +1,6 @@
 {
   "name": "colorful-log-levels",
-  "version": "0.1.9",
+  "version": "0.2.1",
   "description": "A basic logger for JS apps to write files for each log level",
   "main": "logger.js",
   "types": "logger.d.ts",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@types/chalk": "^2.2.0",
-    "chalk": "^2.3.2"
+    "chalk": "^2.4.1"
   },
   "devDependencies": {
     "@types/node": "^9.4.7"
